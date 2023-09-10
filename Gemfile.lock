@@ -85,12 +85,15 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    dockerfile-rails (1.5.5)
+      rails
     e2mmap (0.1.0)
     erubi (1.12.0)
     globalid (1.2.1)
@@ -139,7 +142,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.4-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -187,6 +194,10 @@ GEM
     rbs (2.8.4)
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redis (5.0.7)
+      redis-client (>= 0.9.0)
+    redis-client (0.17.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.8)
       io-console (~> 0.5)
@@ -212,6 +223,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.11.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.11.0)
+    sentry-ruby (5.11.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     solargraph (0.49.0)
       backport (~> 1.2)
       benchmark
@@ -235,7 +251,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.4-aarch64-linux)
     sqlite3 (1.6.4-arm64-darwin)
+    sqlite3 (1.6.4-x86_64-linux)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
@@ -268,19 +286,25 @@ GEM
     zeitwerk (2.6.11)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
   capybara
   debug
+  dockerfile-rails (>= 1.5)
   htmlbeautifier
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
+  redis (~> 5.0)
   rubocop
   selenium-webdriver
+  sentry-rails (~> 5.11)
+  sentry-ruby (~> 5.11)
   solargraph
   sprockets-rails
   sqlite3 (~> 1.4)
